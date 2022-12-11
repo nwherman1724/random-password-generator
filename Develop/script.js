@@ -4,7 +4,7 @@ var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 var uppercase = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var special = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", ":", ";", ".", ",", "?"];
-var randomPassword = [lowercase, uppercase, number, special];
+
 
 function generatePassword() {
   console.log("Button Clicked")
@@ -19,11 +19,11 @@ function generatePassword() {
   let resultNumber = confirm("Click OK to include numbers in your password.");
   let resultSpecial = confirm("Click OK to include special characters in your password.");
 
-  console.log(sign)
-  console.log(resultLower)
-  console.log(resultUpper)
-  console.log(resultNumber)
-  console.log(resultSpecial)
+  //console.log(sign)
+  //console.log(resultLower)
+  //console.log(resultUpper)
+  //console.log(resultNumber)
+  //console.log(resultSpecial)
 
 
   // password = a random lowercase letter + a randome uppercase letter + a random number + a random symbol
@@ -31,17 +31,56 @@ function generatePassword() {
 
   console.log(password);
 
-  randomLowercase = 
+  //split into functions
+  function ranLowercase() {
+    let ranLowercase = lowercase[Math.floor(Math.random() * lowercase.length)]
+    return ranLowercase;
+  }
+
+  ranLowercase();
+
+  function ranUppercase() {
+    let ranUppercase = uppercase[Math.floor(Math.random() * uppercase.length)]
+    return ranUppercase;
+  }
+
+  ranUppercase();
+
+  function ranNumber() {
+    let ranNumber = number[Math.floor(Math.random() * number.length)]
+    return ranNumber;
+  }
+
+  ranNumber();
+
+  function ranSpecial() {
+    let ranSpecial = special[Math.floor(Math.random() * special.length)]
+    return ranSpecial;
+  }
+
+  ranSpecial();
+
+  var randomCharArr = [ranLowercase(), ranUppercase(), ranNumber(), ranSpecial()];
 
   // generateRandomPassword = grab randomPassword items = to the number from the input
+  //for loop for each random character
+  for(var i = 0; i < sign; i++){
 
-  for loop for each random character
+  randomPassword = randomCharArr[Math.floor(Math.random() * randomCharArr.length)]
+  console.log(randomPassword);
+  }
+
+  
 
   // 2. validate the input
   // 3. generate password
-  let generatedPassword = "";
-    const typesCount = lower + upper + number + symbol;
-    const typesArr = [{lower}, {upper}, {number}, {symbol}]
+
+
+  //let generatedPassword = "";
+  //  const typesCount = lower + upper + number + symbol;
+   // const typesArr = [{lower}, {upper}, {number}, {symbol}]
+
+
   //  a. generate a string
   //  b. print it to the screen
   //  c. the string should contain the all of the types of characters specified
@@ -65,4 +104,4 @@ function writePassword() {
 }
 
 //add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword)
