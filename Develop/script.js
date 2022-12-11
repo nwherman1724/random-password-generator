@@ -4,7 +4,7 @@ var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 var uppercase = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var special = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", ":", ";", ".", ",", "?"];
-
+let randomPassword = "";
 
 function generatePassword() {
   console.log("Button Clicked")
@@ -14,6 +14,14 @@ function generatePassword() {
   //  b. lowercase, uppercase, number, special characters
 
   var sign = prompt("Choose a password length between 8 and 128 characters.");
+  
+  if (sign > 7 && sign < 129){
+    console.log("true")
+  } else {
+    alert("You must choose a number between 8 and 128.")
+    return
+  }
+  
   let resultLower = confirm("Click OK to include lowercase letters in your password.");
   let resultUpper = confirm("Click OK to include uppercase letters in your password.");
   let resultNumber = confirm("Click OK to include numbers in your password.");
@@ -25,6 +33,7 @@ function generatePassword() {
   //console.log(resultNumber)
   //console.log(resultSpecial)
 
+  
 
   // password = a random lowercase letter + a randome uppercase letter + a random number + a random symbol
   password = lowercase[Math.floor(Math.random() * lowercase.length)] + uppercase[Math.floor(Math.random() * uppercase.length)] + number[Math.floor(Math.random() * number.length)] + special[Math.floor(Math.random() * special.length)]
@@ -65,8 +74,10 @@ function generatePassword() {
   // generateRandomPassword = grab randomPassword items = to the number from the input
   //for loop for each random character
   for(var i = 0; i < sign; i++){
-
-  randomPassword = randomCharArr[Math.floor(Math.random() * randomCharArr.length)]
+  
+  
+  var randomPasswordChar = randomCharArr[Math.floor(Math.random() * randomCharArr.length)]
+  randomPassword = randomPassword + randomPasswordChar;
   console.log(randomPassword);
   }
 
@@ -91,7 +102,7 @@ function generatePassword() {
   //gerneratePassword = lowercase + uppercase + Symbols + number
   
   // 4. display the password on the page
-  return "Generated password will go here!";
+  return randomPassword;
 }
 
 // Write password to the #password input
