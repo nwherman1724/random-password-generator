@@ -27,20 +27,10 @@ function generatePassword() {
   let resultNumber = confirm("Click OK to include numbers in your password.");
   let resultSpecial = confirm("Click OK to include special characters in your password.");
 
-  //console.log(sign)
-  //console.log(resultLower)
-  //console.log(resultUpper)
-  //console.log(resultNumber)
-  //console.log(resultSpecial)
+//2. validate the input
+//3. generate password
 
-  
-
-  // password = a random lowercase letter + a randome uppercase letter + a random number + a random symbol
-  password = lowercase[Math.floor(Math.random() * lowercase.length)] + uppercase[Math.floor(Math.random() * uppercase.length)] + number[Math.floor(Math.random() * number.length)] + special[Math.floor(Math.random() * special.length)]
-
-  console.log(password);
-
-  //split into functions
+//  functions to generate random character
   function ranLowercase() {
     let ranLowercase = lowercase[Math.floor(Math.random() * lowercase.length)]
     return ranLowercase;
@@ -80,26 +70,6 @@ function generatePassword() {
   randomPassword = randomPassword + randomPasswordChar;
   console.log(randomPassword);
   }
-
-  
-
-  // 2. validate the input
-  // 3. generate password
-
-
-  //let generatedPassword = "";
-  //  const typesCount = lower + upper + number + symbol;
-   // const typesArr = [{lower}, {upper}, {number}, {symbol}]
-
-
-  //  a. generate a string
-  //  b. print it to the screen
-  //  c. the string should contain the all of the types of characters specified
-  
-
-  //if resultLower = fasle then generate password excludes lowercase letters
-
-  //gerneratePassword = lowercase + uppercase + Symbols + number
   
   // 4. display the password on the page
   return randomPassword;
