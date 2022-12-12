@@ -1,4 +1,6 @@
 // Assignment Code
+
+// decalring global functions
 var generateBtn = document.querySelector("#generate");
 var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var uppercase = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -7,16 +9,11 @@ var special = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", 
 let randomPassword = "";
 
 function generatePassword() {
- 
-  console.log("Button Clicked")
-  
 
-  // 1. prompt the user for password criteria
-  //  a. password length between 8 and 128
-  //  b. lowercase, uppercase, number, special characters
-
+  //Asks for inputs
   var sign = prompt("Choose a password length between 8 and 128 characters.");
   
+  //Handles numbes out of bounds requires correct input
   if (sign > 7 && sign < 129){
     console.log("true")
   } else {
@@ -29,15 +26,18 @@ function generatePassword() {
   let resultNumber = confirm("Click OK to include numbers in your password.");
   let resultSpecial = confirm("Click OK to include special characters in your password.");
 
+  //Resets passwords back to and empty string
   randomPassword = "";
 
  //3. generate password
 
+ //creates empty array and adds all possibly characters inside of it
   var randomCharList = [];
   var randomCharList = randomCharList.concat(lowercase, uppercase, number, special);
 
   //2. validate the input
 
+  //Removes lowercase, uppercase, number, special when cancel is clicked on the confirm popup
   if(!resultLower){
     var splicedLowercase = randomCharList.splice(0,26);
   }
