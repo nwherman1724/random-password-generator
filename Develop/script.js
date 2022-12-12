@@ -35,8 +35,6 @@ function generatePassword() {
 
   var randomCharList = [];
   var randomCharList = randomCharList.concat(lowercase, uppercase, number, special);
-  console.log(randomCharList);
- // var randomCharArr = [ranLowercase(), ranUppercase(), ranNumber(), ranSpecial()];
 
   //2. validate the input
 
