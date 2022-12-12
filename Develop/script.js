@@ -33,46 +33,17 @@ function generatePassword() {
 
  //3. generate password
 
- //  functions to generate random character
-  function ranLowercase() {
-    let ranLowercase = lowercase[Math.floor(Math.random() * lowercase.length)]
-    return ranLowercase;
-  }
-
-  ranLowercase();
-
-  function ranUppercase() {
-    let ranUppercase = uppercase[Math.floor(Math.random() * uppercase.length)]
-    return ranUppercase;
-  }
-
-  ranUppercase();
-
-  function ranNumber() {
-    let ranNumber = number[Math.floor(Math.random() * number.length)]
-    return ranNumber;
-  }
-
-  ranNumber();
-
-  function ranSpecial() {
-    let ranSpecial = special[Math.floor(Math.random() * special.length)]
-    return ranSpecial;
-  }
-
-  ranSpecial();
-
   var randomCharList = [];
   var randomCharList = randomCharList.concat(lowercase, uppercase, number, special);
   console.log(randomCharList);
-  var randomCharArr = [ranLowercase(), ranUppercase(), ranNumber(), ranSpecial()];
+ // var randomCharArr = [ranLowercase(), ranUppercase(), ranNumber(), ranSpecial()];
 
   //2. validate the input
 
   if(!resultLower){
     var splicedLowercase = randomCharList.splice(0,26);
   }
- 
+  
   if(!resultUpper){
     var splicedLowercase = randomCharList.splice(26,26);
   }
@@ -84,9 +55,6 @@ function generatePassword() {
   if(!resultSpecial){
     var splicedLowercase = randomCharList.splice(62,20);
   }
-  
-  console.log(randomCharList);
-
 
   // generateRandomPassword = grab randomPassword items = to the number from the input
   //for loop for each random character
