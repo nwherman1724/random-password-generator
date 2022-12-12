@@ -7,7 +7,9 @@ var special = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", 
 let randomPassword = "";
 
 function generatePassword() {
+ 
   console.log("Button Clicked")
+  
 
   // 1. prompt the user for password criteria
   //  a. password length between 8 and 128
@@ -27,10 +29,11 @@ function generatePassword() {
   let resultNumber = confirm("Click OK to include numbers in your password.");
   let resultSpecial = confirm("Click OK to include special characters in your password.");
 
-//2. validate the input
-//3. generate password
+  randomPassword = "";
 
-//  functions to generate random character
+ //3. generate password
+
+ //  functions to generate random character
   function ranLowercase() {
     let ranLowercase = lowercase[Math.floor(Math.random() * lowercase.length)]
     return ranLowercase;
@@ -59,17 +62,43 @@ function generatePassword() {
 
   ranSpecial();
 
+  var randomCharList = [];
+  var randomCharList = randomCharList.concat(lowercase, uppercase, number, special);
+  console.log(randomCharList);
   var randomCharArr = [ranLowercase(), ranUppercase(), ranNumber(), ranSpecial()];
+
+  //2. validate the input
+
+  if(!resultLower){
+    var splicedLowercase = randomCharList.splice(0,26);
+  }
+ 
+  if(!resultUpper){
+    var splicedLowercase = randomCharList.splice(26,26);
+  }
+  
+  if(!resultNumber){
+    var splicedLowercase = randomCharList.splice(52,10);
+  }
+  
+  if(!resultSpecial){
+    var splicedLowercase = randomCharList.splice(62,20);
+  }
+  
+  console.log(randomCharList);
+
 
   // generateRandomPassword = grab randomPassword items = to the number from the input
   //for loop for each random character
   for(var i = 0; i < sign; i++){
   
   
-  var randomPasswordChar = randomCharArr[Math.floor(Math.random() * randomCharArr.length)]
+  var randomPasswordChar = randomCharList[Math.floor(Math.random() * randomCharList.length)]
   randomPassword = randomPassword + randomPasswordChar;
   console.log(randomPassword);
   }
+  
+  
   
   // 4. display the password on the page
   return randomPassword;
